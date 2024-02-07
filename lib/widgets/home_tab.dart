@@ -16,10 +16,15 @@ class HomeTab extends StatelessWidget {
             const SliverAppBar(
               floating: true,
               snap: true,
+              titleSpacing: 0.0,
               backgroundColor: Colors.transparent,
               elevation: 0.0,
               flexibleSpace: FlexibleSpaceBar(
-                title: Text('Novidades'),
+                title: SafeArea(
+                  child: Center(
+                    child: Text('Novidades'),
+                  ),
+                ),
                 centerTitle: true,
                 titlePadding: EdgeInsets.zero,
               ),
