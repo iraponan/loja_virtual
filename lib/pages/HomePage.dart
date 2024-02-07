@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/widgets/home_tab.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -9,9 +10,9 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageView(
       controller: _pageController,
-      physics: NeverScrollableScrollPhysics(),
-      children: [
-
+      physics: const NeverScrollableScrollPhysics(),
+      children: const [
+        HomeTab(),
       ],
     );
   }

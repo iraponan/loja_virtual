@@ -15,6 +15,6 @@ void main() async {
       primaryColor: const Color.fromARGB(255, 4, 125, 141),
     ),
     debugShowCheckedModeBanner: false,
-    home: const HomePage(),
+    home: HomePage(),
   ));
 }
