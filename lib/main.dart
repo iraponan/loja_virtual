@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/firebase_options.dart';
+import 'package:loja_virtual/config/firebase_options.dart';
 import 'package:loja_virtual/pages/HomePage.dart';
 
 void main() async {
