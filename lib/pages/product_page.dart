@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/widgets/category_tile.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
@@ -14,10 +15,14 @@ class ProductsPage extends StatelessWidget {
             child: CircularProgressIndicator(),
           );
         } else {
+          var dividedTiles = ListTile.divideTiles(
+            tiles: snapshot.data!.docs.map((doc) {
+              return CategoryTile(snapshot: doc);
+            }).toList(),
+            color: Colors.grey[500],
+          ).toList();
           return ListView(
-            children: [
-
-            ],
+            children: dividedTiles,
           );
         }
       },
