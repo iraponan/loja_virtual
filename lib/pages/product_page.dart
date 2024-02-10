@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/widgets/category_tile.dart';
+import 'package:loja_virtual/widgets/products/category_tile.dart';
 
 class ProductsPage extends StatelessWidget {
   const ProductsPage({super.key});
