@@ -12,10 +12,12 @@ class HomePage extends StatelessWidget {
     return PageView(
       controller: _pageController,
       physics: const NeverScrollableScrollPhysics(),
-      children: const [
+      children: [
         Scaffold(
-          body: HomeTab(),
-          drawer: CustomDrawer(),
+          body: const HomeTab(),
+          drawer: CustomDrawer(
+            pageController: _pageController,
+          ),
         ),
       ],
     );

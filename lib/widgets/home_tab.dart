@@ -14,6 +14,7 @@ class HomeTab extends StatelessWidget {
         CustomScrollView(
           slivers: [
             const SliverAppBar(
+              foregroundColor: Colors.white,
               floating: true,
               snap: true,
               titleSpacing: 0.0,

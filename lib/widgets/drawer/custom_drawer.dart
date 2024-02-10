@@ -3,7 +3,9 @@ import 'package:loja_virtual/widgets/drawer/tiles/drawer_tile.dart';
 import 'drawer_back.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key});
+  const CustomDrawer({super.key, required this.pageController});
+
+  final PageController pageController;
 
   @override
   Widget build(BuildContext context) {
@@ -62,19 +64,30 @@ class CustomDrawer extends StatelessWidget {
                   ],
                 ),
               ),
-              Divider(),
+              const Divider(),
               DrawerTile(
                 icon: Icons.home,
                 text: 'Inicio',
-              ),DrawerTile(
+                controller: pageController,
+                page: 0,
+              ),
+              DrawerTile(
                 icon: Icons.list,
                 text: 'Produtos',
-              ),DrawerTile(
+                controller: pageController,
+                page: 1,
+              ),
+              DrawerTile(
                 icon: Icons.location_on,
                 text: 'Lojas',
-              ),DrawerTile(
+                controller: pageController,
+                page: 2,
+              ),
+              DrawerTile(
                 icon: Icons.playlist_add_check,
                 text: 'Meus Pedidos',
+                controller: pageController,
+                page: 3,
               ),
             ],
           ),
