@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/config/firebase_options.dart';
-import 'package:loja_virtual/pages/HomePage.dart';
+import 'package:loja_virtual/pages/home_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

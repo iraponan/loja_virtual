@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/pages/product_page.dart';
 import 'package:loja_virtual/widgets/drawer/custom_drawer.dart';
 import 'package:loja_virtual/widgets/home_tab.dart';
 
@@ -18,6 +19,14 @@ class HomePage extends StatelessWidget {
           drawer: CustomDrawer(
             pageController: _pageController,
           ),
+        ),
+        Scaffold(
+          appBar: AppBar(
+            title: const Text('Produtos'),
+            centerTitle: true,
+          ),
+          drawer: CustomDrawer(pageController: _pageController),
+          body: ProductsPage(),
         ),
       ],
     );
