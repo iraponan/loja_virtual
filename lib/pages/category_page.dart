@@ -56,7 +56,7 @@ class CategoryPage extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return ProductTile(
                           type: 'grid',
-                          data: ProductData.fromDocument(
+                          productData: ProductData.fromDocument(
                               snapshot.data!.docs[index]));
                     },
                   ),
@@ -66,7 +66,7 @@ class CategoryPage extends StatelessWidget {
                     itemBuilder: (BuildContext context, int index) {
                       return ProductTile(
                           type: 'list',
-                          data: ProductData.fromDocument(
+                          productData: ProductData.fromDocument(
                               snapshot.data!.docs[index]));
                     },
                   ),
