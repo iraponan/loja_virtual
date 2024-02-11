@@ -89,7 +89,32 @@ class _LoginPageState extends State<LoginPage> {
                 Align(
                   alignment: Alignment.centerRight,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      if (_emailController.text.isEmpty) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          const SnackBar(
+                            content: Text(
+                              'Insira seu e-mail para recuperação.!',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: Colors.redAccent,
+                            duration: Duration(seconds: 2),
+                          ),
+                        );
+                      } else {
+                        model.recoverPass(_emailController.text);
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: const Text(
+                              'Confira seu e-mail.',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                            backgroundColor: Theme.of(context).primaryColor,
+                            duration: const Duration(seconds: 2),
+                          ),
+                        );
+                      }
+                    },
                     style: TextButton.styleFrom(
                       foregroundColor: Theme.of(context).primaryColor,
                       padding: EdgeInsets.zero,
