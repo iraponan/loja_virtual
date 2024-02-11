@@ -100,9 +100,7 @@ class _ProductPageState extends State<ProductPage> {
                             ),
                             border: Border.all(
                               width: 3.0,
-                              color: s == size
-                                  ? primaryColor
-                                  : Colors.grey,
+                              color: s == size ? primaryColor : Colors.grey,
                             ),
                           ),
                           width: 50.0,
@@ -111,6 +109,41 @@ class _ProductPageState extends State<ProductPage> {
                         ),
                       );
                     }).toList(),
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                SizedBox(
+                  height: 44.0,
+                  child: ElevatedButton(
+                    onPressed: size != null ? () {} : null,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: primaryColor,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: const Text(
+                      'Adicionar ao Carrinho',
+                      style: TextStyle(
+                        fontSize: 18.0,
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                const Text(
+                  'Descrição:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  productData.description ?? '',
+                  style: const TextStyle(
+                    fontSize: 16.0,
                   ),
                 ),
               ],
