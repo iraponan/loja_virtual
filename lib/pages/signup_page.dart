@@ -13,16 +13,16 @@ class _SignUpPageState extends State<SignUpPage> {
   final _formKey = GlobalKey<FormState>();
 
   final _nameController = TextEditingController();
-
   final _addressController = TextEditingController();
-
   final _emailController = TextEditingController();
-
   final _passController = TextEditingController();
+
+  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text(
           'Criar Conta',
@@ -106,9 +106,9 @@ class _SignUpPageState extends State<SignUpPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         Map<String, dynamic> userData = {
-                          'name' : _nameController.text,
-                          'address' : _addressController.text,
-                          'email' : _emailController.text
+                          'name': _nameController.text,
+                          'address': _addressController.text,
+                          'email': _emailController.text
                         };
 
                         model.signUp(
@@ -140,8 +140,34 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _onSuccess() {
+    _scaffoldKey.currentState?.showSnackBar(
+      SnackBar(
+        content: const Text(
+          'Usuário Criado Com Sucesso!',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Theme.of(context).primaryColor,
+        duration: const Duration(seconds: 2),
+      ),
+    );
+    Future.delayed(const Duration(seconds: 2)).then((_) {
+      Navigator.of(context).pop();
+    });
   }
 
   void _onFail() {
+    _scaffoldKey.currentState?.showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Falha ao Criar o Usuário!',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 2),
+      ),
+    );
+    Future.delayed(const Duration(seconds: 2)).then((_) {
+      Navigator.of(context).pop();
+    });
   }
 }
