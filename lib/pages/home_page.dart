@@ -26,7 +26,7 @@ class HomePage extends StatelessWidget {
             centerTitle: true,
           ),
           drawer: CustomDrawer(pageController: _pageController),
-          body: CategoryDetailPage(),
+          body: const CategoryDetailPage(),
         ),
       ],
     );

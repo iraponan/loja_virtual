@@ -60,20 +60,26 @@ class CategoryPage extends StatelessWidget {
                     ),
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (BuildContext context, int index) {
+                      ProductData data =
+                          ProductData.fromDocument(snapshot.data!.docs[index]);
+                      data.category = this.snapshot.id;
                       return ProductTile(
-                          type: 'grid',
-                          productData: ProductData.fromDocument(
-                              snapshot.data!.docs[index]));
+                        type: 'grid',
+                        productData: data,
+                      );
                     },
                   ),
                   ListView.builder(
                     padding: const EdgeInsets.all(4.0),
                     itemCount: snapshot.data!.docs.length,
                     itemBuilder: (BuildContext context, int index) {
+                      ProductData data =
+                          ProductData.fromDocument(snapshot.data!.docs[index]);
+                      data.category = this.snapshot.id;
                       return ProductTile(
-                          type: 'list',
-                          productData: ProductData.fromDocument(
-                              snapshot.data!.docs[index]));
+                        type: 'list',
+                        productData: data,
+                      );
                     },
                   ),
                 ],

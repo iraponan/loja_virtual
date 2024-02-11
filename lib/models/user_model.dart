@@ -11,6 +11,8 @@ class UserModel extends Model {
 
   bool isLoading = false;
 
+  static UserModel of(BuildContext context) =>
+      ScopedModel.of<UserModel>(context);
 
   @override
   void addListener(VoidCallback listener) {
@@ -52,10 +54,12 @@ class UserModel extends Model {
     isLoading = true;
     notifyListeners();
 
-    _auth.signInWithEmailAndPassword(
+    _auth
+        .signInWithEmailAndPassword(
       email: email,
       password: pass,
-    ).then((user) async {
+    )
+        .then((user) async {
       firebaseUser = user.user;
       await _loadCurrentUser();
       onSuccess();
@@ -87,7 +91,7 @@ class UserModel extends Model {
   Future<Null> _saveUserData(Map<String, dynamic> userData) async {
     this.userData = userData;
     await FirebaseFirestore.instance
-        .collection('user')
+        .collection('users')
         .doc(firebaseUser?.uid)
         .set(userData);
   }
@@ -96,7 +100,10 @@ class UserModel extends Model {
     firebaseUser ??= _auth.currentUser;
     if (firebaseUser != null) {
       if (userData['name'] == null) {
-        DocumentSnapshot docUser = await FirebaseFirestore.instance.collection('user').doc(firebaseUser?.uid).get();
+        DocumentSnapshot docUser = await FirebaseFirestore.instance
+            .collection('users')
+            .doc(firebaseUser?.uid)
+            .get();
         userData = docUser.data() as Map<String, dynamic>;
       }
     }

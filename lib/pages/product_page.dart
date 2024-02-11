@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/datas/cart_product.dart';
 import 'package:loja_virtual/datas/product_data.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
+import 'package:loja_virtual/models/cart_model.dart';
+import 'package:loja_virtual/models/user_model.dart';
+import 'package:loja_virtual/pages/login_page.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key, required this.productData});
@@ -117,14 +121,32 @@ class _ProductPageState extends State<ProductPage> {
                 SizedBox(
                   height: 44.0,
                   child: ElevatedButton(
-                    onPressed: size != null ? () {} : null,
+                    onPressed: size != null
+                        ? () {
+                            if (UserModel.of(context).isLoggedIn()) {
+                              CartProduct cartProduct = CartProduct();
+
+                              cartProduct.size = size;
+                              cartProduct.quantity = 1;
+                              cartProduct.pid = productData.id;
+                              cartProduct.category = productData.category;
+
+                              CartModel.of(context).addCartItem(cartProduct);
+                            } else {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (context) => const LoginPage()));
+                            }
+                          }
+                        : null,
                     style: ElevatedButton.styleFrom(
                       backgroundColor: primaryColor,
                       foregroundColor: Colors.white,
                     ),
-                    child: const Text(
-                      'Adicionar ao Carrinho',
-                      style: TextStyle(
+                    child: Text(
+                      UserModel.of(context).isLoggedIn()
+                          ? 'Adicionar ao Carrinho'
+                          : 'Entre para Comprar',
+                      style: const TextStyle(
                         fontSize: 18.0,
                       ),
                     ),
