@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/pages/signup_page.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class SignUpPage extends StatelessWidget {
+  SignUpPage({super.key});
 
   final _formKey = GlobalKey<FormState>();
 
@@ -11,33 +10,41 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Entrar',
+          'Criar Conta',
         ),
         centerTitle: true,
-        actions: [
-          TextButton(
-            onPressed: () {
-              Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => SignUpPage(),
-              ));
-            },
-            style: TextButton.styleFrom(
-              foregroundColor: Colors.white,
-            ),
-            child: const Text(
-              'CRIAR CONTA',
-              style: TextStyle(
-                fontSize: 15.0,
-              ),
-            ),
-          ),
-        ],
       ),
       body: Form(
         key: _formKey,
         child: ListView(
           padding: const EdgeInsets.all(16.0),
           children: [
+            TextFormField(
+              decoration: const InputDecoration(hintText: 'Nome Completo'),
+              textCapitalization: TextCapitalization.sentences,
+              validator: (text) {
+                if (text!.isEmpty) {
+                  return 'Nome inválido!';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
+            TextFormField(
+              decoration: const InputDecoration(hintText: 'Endereço'),
+              textCapitalization: TextCapitalization.sentences,
+              validator: (text) {
+                if (text!.isEmpty) {
+                  return 'Endereço inválido!';
+                }
+                return null;
+              },
+            ),
+            const SizedBox(
+              height: 16.0,
+            ),
             TextFormField(
               decoration: const InputDecoration(hintText: 'E-mail'),
               keyboardType: TextInputType.emailAddress,
@@ -61,20 +68,6 @@ class LoginPage extends StatelessWidget {
                 return null;
               },
             ),
-            Align(
-              alignment: Alignment.centerRight,
-              child: TextButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(
-                  foregroundColor: Theme.of(context).primaryColor,
-                  padding: EdgeInsets.zero,
-                ),
-                child: const Text(
-                  'Esqueci minha senha',
-                  textAlign: TextAlign.right,
-                ),
-              ),
-            ),
             const SizedBox(
               height: 16.0,
             ),
@@ -82,14 +75,16 @@ class LoginPage extends StatelessWidget {
               height: 44.0,
               child: ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {}
+                  if (_formKey.currentState!.validate()) {
+
+                  }
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Theme.of(context).primaryColor,
                   foregroundColor: Colors.white,
                 ),
                 child: const Text(
-                  'Entrar',
+                  'Criar Conta',
                   style: TextStyle(
                     fontSize: 18.0,
                   ),
