@@ -13,6 +13,10 @@ void main() async {
     theme: ThemeData(
       primarySwatch: Colors.blue,
       primaryColor: const Color.fromARGB(255, 4, 125, 141),
+      appBarTheme: const AppBarTheme(
+        backgroundColor: Color.fromARGB(255, 4, 125, 141),
+        foregroundColor: Colors.white,
+      ),
     ),
     debugShowCheckedModeBanner: false,
     home: HomePage(),

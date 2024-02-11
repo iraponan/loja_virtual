@@ -20,10 +20,16 @@ class CategoryPage extends StatelessWidget {
             indicatorColor: Colors.white,
             tabs: [
               Tab(
-                icon: Icon(Icons.grid_on),
+                icon: Icon(
+                  Icons.grid_on,
+                  color: Colors.white,
+                ),
               ),
               Tab(
-                icon: Icon(Icons.list),
+                icon: Icon(
+                  Icons.list,
+                  color: Colors.white,
+                ),
               ),
             ],
           ),
