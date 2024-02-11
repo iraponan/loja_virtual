@@ -48,10 +48,12 @@ class CustomDrawer extends StatelessWidget {
                             children: [
                               Text(
                                 'Olá, ${!model.isLoggedIn() ? '' : model.userData['name']}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
                                 ),
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
                               ),
                               GestureDetector(
                                 child: Text(
@@ -65,7 +67,7 @@ class CustomDrawer extends StatelessWidget {
                                 onTap: () {
                                   if (!model.isLoggedIn()) {
                                     Navigator.of(context).push(MaterialPageRoute(
-                                        builder: (context) => LoginPage()));
+                                        builder: (context) => const LoginPage()));
                                   } else {
                                     model.signOut();
                                   }

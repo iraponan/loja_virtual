@@ -3,14 +3,25 @@ import 'package:loja_virtual/models/user_model.dart';
 import 'package:loja_virtual/pages/signup_page.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class LoginPage extends StatelessWidget {
-  LoginPage({super.key});
+class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
 
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
+
+  final _emailController = TextEditingController();
+  final _passController = TextEditingController();
+
+  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text(
           'Entrar',
@@ -20,7 +31,7 @@ class LoginPage extends StatelessWidget {
           TextButton(
             onPressed: () {
               Navigator.of(context).pushReplacement(MaterialPageRoute(
-                builder: (context) => SignUpPage(),
+                builder: (context) => const SignUpPage(),
               ));
             },
             style: TextButton.styleFrom(
@@ -51,6 +62,7 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.all(16.0),
               children: [
                 TextFormField(
+                  controller: _emailController,
                   decoration: const InputDecoration(hintText: 'E-mail'),
                   keyboardType: TextInputType.emailAddress,
                   validator: (text) {
@@ -64,6 +76,7 @@ class LoginPage extends StatelessWidget {
                   height: 16.0,
                 ),
                 TextFormField(
+                  controller: _passController,
                   decoration: const InputDecoration(hintText: 'Senha'),
                   obscureText: true,
                   validator: (text) {
@@ -95,7 +108,12 @@ class LoginPage extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {}
-                      model.signIn();
+                      model.signIn(
+                        email: _emailController.text,
+                        pass: _passController.text,
+                        onSuccess: _onSuccess,
+                        onFail: _onFail,
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Theme.of(context).primaryColor,
@@ -113,6 +131,23 @@ class LoginPage extends StatelessWidget {
             ),
           );
         },
+      ),
+    );
+  }
+
+  void _onSuccess() {
+    Navigator.of(context).pop();
+  }
+
+  void _onFail() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text(
+          'Falha ao Entrar!',
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(seconds: 2),
       ),
     );
   }

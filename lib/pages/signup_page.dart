@@ -17,12 +17,9 @@ class _SignUpPageState extends State<SignUpPage> {
   final _emailController = TextEditingController();
   final _passController = TextEditingController();
 
-  final _scaffoldKey = GlobalKey<ScaffoldMessengerState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text(
           'Criar Conta',
@@ -140,7 +137,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _onSuccess() {
-    _scaffoldKey.currentState?.showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: const Text(
           'Usuário Criado Com Sucesso!',
@@ -156,7 +153,7 @@ class _SignUpPageState extends State<SignUpPage> {
   }
 
   void _onFail() {
-    _scaffoldKey.currentState?.showSnackBar(
+    ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
         content: Text(
           'Falha ao Criar o Usuário!',
