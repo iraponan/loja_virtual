@@ -17,6 +17,8 @@ class _ProductPageState extends State<ProductPage> {
 
   final ProductData productData;
 
+  String? size;
+
   @override
   Widget build(BuildContext context) {
     final Color primaryColor = Theme.of(context).primaryColor;
@@ -61,6 +63,54 @@ class _ProductPageState extends State<ProductPage> {
                     fontSize: 22.0,
                     fontWeight: FontWeight.bold,
                     color: primaryColor,
+                  ),
+                ),
+                const SizedBox(
+                  height: 16.0,
+                ),
+                const Text(
+                  'Tamanho:',
+                  style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                SizedBox(
+                  height: 34.0,
+                  child: GridView(
+                    padding: const EdgeInsets.symmetric(vertical: 4.0),
+                    scrollDirection: Axis.horizontal,
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      mainAxisSpacing: 8.0,
+                      childAspectRatio: 0.5,
+                    ),
+                    children: productData.sizes!.map((s) {
+                      return GestureDetector(
+                        onTap: () {
+                          setState(() {
+                            size = s;
+                          });
+                        },
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(4.0),
+                            ),
+                            border: Border.all(
+                              width: 3.0,
+                              color: s == size
+                                  ? primaryColor
+                                  : Colors.grey,
+                            ),
+                          ),
+                          width: 50.0,
+                          alignment: Alignment.center,
+                          child: Text(s),
+                        ),
+                      );
+                    }).toList(),
                   ),
                 ),
               ],
