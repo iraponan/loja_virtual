@@ -14,6 +14,7 @@ class OrderPage extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(16.0),
+        alignment: Alignment.center,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

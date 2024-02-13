@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/widgets/products/category_tile.dart';
+import 'package:loja_virtual/widgets/tiles/tile_category.dart';
 
-class CategoryDetailPage extends StatelessWidget {
-  const CategoryDetailPage({super.key});
+class ProductsTab extends StatelessWidget {
+  const ProductsTab({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:loja_virtual/datas/product_data.dart';
+import 'package:loja_virtual/datas/data_product.dart';
 
 class CartProduct {
   CartProduct();

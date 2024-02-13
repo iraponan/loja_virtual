@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/product_data.dart';
-import 'package:loja_virtual/pages/product_page.dart';
+import 'package:loja_virtual/datas/data_product.dart';
+import 'package:loja_virtual/pages/page_product.dart';
 
 class ProductTile extends StatelessWidget {
   const ProductTile({super.key, required this.type, required this.productData});

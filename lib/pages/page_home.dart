@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/pages/category/category_detail_page.dart';
 import 'package:loja_virtual/widgets/cart/cart_button.dart';
-import 'package:loja_virtual/widgets/drawer/custom_drawer.dart';
-import 'package:loja_virtual/widgets/home_tab.dart';
+import 'package:loja_virtual/widgets/drawer/drawer_custom.dart';
+import 'package:loja_virtual/widgets/tabs/tab_home.dart';
+import 'package:loja_virtual/widgets/tabs/tab_orders.dart';
+import 'package:loja_virtual/widgets/tabs/tab_products.dart';
 
 class HomePage extends StatelessWidget {
   HomePage({super.key});
@@ -28,8 +29,20 @@ class HomePage extends StatelessWidget {
             centerTitle: true,
           ),
           drawer: CustomDrawer(pageController: _pageController),
-          body: const CategoryDetailPage(),
+          body: const ProductsTab(),
           floatingActionButton: const CartButton(),
+        ),
+        Container(
+          color: Colors.yellow,
+        ),
+        Scaffold(
+          appBar: AppBar(
+            title: const Text('Meus Pedidos'),
+            centerTitle: true,
+          ),
+          drawer: CustomDrawer(pageController: _pageController),
+          body: const OrdersTab(),
+          //floatingActionButton: const CartButton(),
         ),
       ],
     );

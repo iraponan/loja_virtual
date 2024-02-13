@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/pages/login_page.dart';
-import 'package:loja_virtual/widgets/drawer/drawer_tile.dart';
+import 'package:loja_virtual/models/model_user.dart';
+import 'package:loja_virtual/pages/page_login.dart';
+import 'package:loja_virtual/widgets/tiles/tile_drawer.dart';
 import 'package:scoped_model/scoped_model.dart';
 import 'drawer_back.dart';
 

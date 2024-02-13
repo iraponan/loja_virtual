@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/cart_model.dart';
+import 'package:loja_virtual/models/model_cart.dart';
 
 class DiscountCard extends StatelessWidget {
   const DiscountCard({super.key});

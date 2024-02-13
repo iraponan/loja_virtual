@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/pages/signup_page.dart';
+import 'package:loja_virtual/models/model_user.dart';
+import 'package:loja_virtual/pages/page_signup.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class LoginPage extends StatefulWidget {

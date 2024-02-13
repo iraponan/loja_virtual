@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/cart_model.dart';
+import 'package:loja_virtual/models/model_cart.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class CartResume extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/cart_model.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/pages/login_page.dart';
-import 'package:loja_virtual/pages/order_page.dart';
+import 'package:loja_virtual/models/model_cart.dart';
+import 'package:loja_virtual/models/model_user.dart';
+import 'package:loja_virtual/pages/page_login.dart';
+import 'package:loja_virtual/pages/page_order.dart';
 import 'package:loja_virtual/widgets/cart/cart_discount_card.dart';
 import 'package:loja_virtual/widgets/cart/cart_resume.dart';
 import 'package:loja_virtual/widgets/cart/cart_ship_card.dart';

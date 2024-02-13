@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/models/user_model.dart';
+import 'package:loja_virtual/models/model_user.dart';
 import 'package:scoped_model/scoped_model.dart';
 
 class SignUpPage extends StatefulWidget {

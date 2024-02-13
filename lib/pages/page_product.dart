@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/cart_product.dart';
-import 'package:loja_virtual/datas/product_data.dart';
+import 'package:loja_virtual/datas/data_cart_product.dart';
+import 'package:loja_virtual/datas/data_product.dart';
 import 'package:another_carousel_pro/another_carousel_pro.dart';
-import 'package:loja_virtual/models/cart_model.dart';
-import 'package:loja_virtual/models/user_model.dart';
-import 'package:loja_virtual/pages/cart_page.dart';
-import 'package:loja_virtual/pages/login_page.dart';
+import 'package:loja_virtual/models/model_cart.dart';
+import 'package:loja_virtual/models/model_user.dart';
+import 'package:loja_virtual/pages/page_cart.dart';
+import 'package:loja_virtual/pages/page_login.dart';
 
 class ProductPage extends StatefulWidget {
   const ProductPage({super.key, required this.productData});

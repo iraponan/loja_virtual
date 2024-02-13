@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/cart_product.dart';
-import 'package:loja_virtual/datas/product_data.dart';
+import 'package:loja_virtual/datas/data_cart_product.dart';
+import 'package:loja_virtual/datas/data_product.dart';
 import 'package:loja_virtual/widgets/cart/cart_product_content.dart';
 
 class CartTile extends StatelessWidget {

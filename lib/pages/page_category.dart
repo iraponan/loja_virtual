@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/product_data.dart';
-import 'package:loja_virtual/widgets/products/product_tile.dart';
+import 'package:loja_virtual/datas/data_product.dart';
+import 'package:loja_virtual/widgets/tiles/tile_product.dart';
 
 class CategoryPage extends StatelessWidget {
   const CategoryPage({super.key, required this.snapshot});

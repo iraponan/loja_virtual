@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/pages/category/category_page.dart';
+import 'package:loja_virtual/pages/page_category.dart';
 
 class CategoryTile extends StatelessWidget {
   const CategoryTile({super.key, required this.snapshot});

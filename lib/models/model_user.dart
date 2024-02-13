@@ -70,6 +70,7 @@ class UserModel extends Model {
       isLoading = false;
       notifyListeners();
     });
+    notifyListeners();
   }
 
   Future<void> signOut() async {

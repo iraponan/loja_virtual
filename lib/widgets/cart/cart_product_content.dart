@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:loja_virtual/datas/cart_product.dart';
-import 'package:loja_virtual/models/cart_model.dart';
+import 'package:loja_virtual/datas/data_cart_product.dart';
+import 'package:loja_virtual/models/model_cart.dart';
 
 class CartProductContent extends StatelessWidget {
   const CartProductContent({super.key, required this.cartProduct});
