@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:loja_virtual/models/cart_model.dart';
 import 'package:loja_virtual/models/user_model.dart';
 import 'package:loja_virtual/pages/login_page.dart';
+import 'package:loja_virtual/pages/order_page.dart';
 import 'package:loja_virtual/widgets/cart/cart_discount_card.dart';
 import 'package:loja_virtual/widgets/cart/cart_resume.dart';
 import 'package:loja_virtual/widgets/cart/cart_ship_card.dart';
@@ -105,17 +106,24 @@ class _CartPageState extends State<CartPage> {
               children: [
                 Column(
                   children: model.products.map((product) {
-                    return CartTile(cartProduct: product,);
+                    return CartTile(
+                      cartProduct: product,
+                    );
                   }).toList(),
                 ),
                 const DiscountCard(),
                 const ShipCard(),
-                CartResume(buy: () async {
-                  String? orderId = await model.finishOrder();
-                  if (orderId != null) {
-                    print(orderId);
-                  }
-                },),
+                CartResume(
+                  buy: () async {
+                    String? orderId = await model.finishOrder();
+                    if (orderId != null) {
+                      Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(builder: (context) {
+                        return OrderPage(orderId: orderId);
+                      }));
+                    }
+                  },
+                ),
               ],
             );
           }
