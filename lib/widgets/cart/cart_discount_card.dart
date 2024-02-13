@@ -2,8 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/models/cart_model.dart';
 
-class DiscountCart extends StatelessWidget {
-  const DiscountCart({super.key});
+class DiscountCard extends StatelessWidget {
+  const DiscountCard({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +29,9 @@ class DiscountCart extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: TextFormField(
               decoration: const InputDecoration(
-                  border: OutlineInputBorder(), hintText: 'Digite seu cupom.'),
+                border: OutlineInputBorder(),
+                hintText: 'Digite seu cupom.',
+              ),
               initialValue: CartModel.of(context).couponCode ?? '',
               onFieldSubmitted: (text) {
                 FirebaseFirestore.instance
@@ -38,7 +40,8 @@ class DiscountCart extends StatelessWidget {
                     .get()
                     .then((docSnap) {
                   if (docSnap.exists) {
-                    CartModel.of(context).setCoupon(text, docSnap.get('percent'));
+                    CartModel.of(context)
+                        .setCoupon(text, docSnap.get('percent'));
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
