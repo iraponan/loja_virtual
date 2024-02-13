@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:loja_virtual/datas/cart_product.dart';
+import 'package:loja_virtual/models/cart_model.dart';
 
 class CartProductContent extends StatelessWidget {
   const CartProductContent({super.key, required this.cartProduct});
@@ -49,18 +50,24 @@ class CartProductContent extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     IconButton(
-                      onPressed: cartProduct.quantity! > 1 ? () {} : null,
+                      onPressed: cartProduct.quantity! > 1 ? () {
+                        CartModel.of(context).decProduct(cartProduct);
+                      } : null,
                       icon: const Icon(Icons.remove),
                       color: Theme.of(context).primaryColor,
                     ),
                     Text(cartProduct.quantity.toString()),
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        CartModel.of(context).incProduct(cartProduct);
+                      },
                       icon: const Icon(Icons.add),
                       color: Theme.of(context).primaryColor,
                     ),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        CartModel.of(context).removeCarItem(cartProduct);
+                      },
                       style: TextButton.styleFrom(
                         foregroundColor: Colors.grey[500],
                       ),

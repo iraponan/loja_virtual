@@ -5,9 +5,14 @@ import 'package:loja_virtual/pages/login_page.dart';
 import 'package:loja_virtual/widgets/cart/cart_tile.dart';
 import 'package:scoped_model/scoped_model.dart';
 
-class CartPage extends StatelessWidget {
+class CartPage extends StatefulWidget {
   const CartPage({super.key});
 
+  @override
+  State<CartPage> createState() => _CartPageState();
+}
+
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +86,7 @@ class CartPage extends StatelessWidget {
                 ],
               ),
             );
-          } else if (model.products.isEmpty) {
+          } else if (model.products == null || model.products.length == 0) {
             return const Center(
               child: Text(
                 'Nenhum produto no carrinho!',
