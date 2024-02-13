@@ -15,6 +15,10 @@ class CartResume extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: ScopedModelDescendant<CartModel>(
           builder: (BuildContext context, Widget? child, CartModel model) {
+            double price = model.getProductPrice();
+            double discount = model.getDiscount();
+            double ship = model.getShipPrice();
+
             return Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
@@ -27,27 +31,27 @@ class CartResume extends StatelessWidget {
                 const SizedBox(
                   height: 16.0,
                 ),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Subtotal'),
-                    Text('R\$ 0.00'),
+                    const Text('Subtotal'),
+                    Text('R\$ ${price.toStringAsFixed(2)}'),
                   ],
                 ),
                 const Divider(),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Desconto'),
-                    Text('R\$ 0.00'),
+                    const Text('Desconto'),
+                    Text('R\$ ${discount > 0 ? '-${discount.toStringAsFixed(2)}' : discount.toStringAsFixed(2)}'),
                   ],
                 ),
                 const Divider(),
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Entrega'),
-                    Text('R\$ 0.00'),
+                    const Text('Entrega'),
+                    Text('R\$ ${ship.toStringAsFixed(2)}'),
                   ],
                 ),
                 const Divider(),
@@ -62,7 +66,7 @@ class CartResume extends StatelessWidget {
                       style: TextStyle(fontWeight: FontWeight.w500),
                     ),
                     Text(
-                      'R\$ 0.00',
+                      'R\$ ${(price + ship - discount).toStringAsFixed(2)}',
                       style: TextStyle(
                         color: Theme.of(context).primaryColor,
                         fontSize: 16.0,

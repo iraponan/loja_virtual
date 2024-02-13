@@ -9,6 +9,7 @@ class CartProductContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    CartModel.of(context).updatePrices();
     return Row(
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
