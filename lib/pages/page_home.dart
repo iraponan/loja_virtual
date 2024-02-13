@@ -3,6 +3,7 @@ import 'package:loja_virtual/widgets/cart/cart_button.dart';
 import 'package:loja_virtual/widgets/drawer/drawer_custom.dart';
 import 'package:loja_virtual/widgets/tabs/tab_home.dart';
 import 'package:loja_virtual/widgets/tabs/tab_orders.dart';
+import 'package:loja_virtual/widgets/tabs/tab_places.dart';
 import 'package:loja_virtual/widgets/tabs/tab_products.dart';
 
 class HomePage extends StatelessWidget {
@@ -32,8 +33,13 @@ class HomePage extends StatelessWidget {
           body: const ProductsTab(),
           floatingActionButton: const CartButton(),
         ),
-        Container(
-          color: Colors.yellow,
+        Scaffold(
+          appBar: AppBar(
+            title: const Text('Lojas'),
+            centerTitle: true,
+          ),
+          body: const PlacesTab(),
+          drawer: CustomDrawer(pageController: _pageController),
         ),
         Scaffold(
           appBar: AppBar(
