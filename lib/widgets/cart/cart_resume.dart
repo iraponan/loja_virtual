@@ -79,7 +79,7 @@ class CartResume extends StatelessWidget {
                   height: 16.0,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: buy,
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).primaryColor,
                     foregroundColor: Colors.white,

@@ -110,7 +110,12 @@ class _CartPageState extends State<CartPage> {
                 ),
                 const DiscountCard(),
                 const ShipCard(),
-                CartResume(buy: () {  },),
+                CartResume(buy: () async {
+                  String? orderId = await model.finishOrder();
+                  if (orderId != null) {
+                    print(orderId);
+                  }
+                },),
               ],
             );
           }
