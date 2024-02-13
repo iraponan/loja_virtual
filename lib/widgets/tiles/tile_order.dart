@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:loja_virtual/widgets/order/order_product_content.dart';
 
 class OrderTile extends StatelessWidget {
   const OrderTile({super.key, required this.orderId});
@@ -25,13 +26,18 @@ class OrderTile extends StatelessWidget {
               );
             } else {
               return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Código do Pedido: ${snapshot.data?.id}',
                     style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
-                  )
+                  ),
+                  const SizedBox(
+                    height: 4.0,
+                  ),
+                  OrderProductContent(snapshot: snapshot.data!,),
                 ],
               );
             }
